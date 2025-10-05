@@ -14,9 +14,9 @@ class NeuTTSAir:
     def __init__(
         self,
         backbone_repo="neuphonic/neutts-air",
-        backbone_device="cpu",
+        backbone_device="cuda",
         codec_repo="neuphonic/neucodec",
-        codec_device="cpu",
+        codec_device="cuda",
     ):
 
         # Consts
@@ -130,9 +130,9 @@ class NeuTTSAir:
 
         # Decode
         wav = self._decode(output_str)
-        watermarked_wav = self.watermarker.apply_watermark(wav, sample_rate=24_000)
+        # watermarked_wav = self.watermarker.apply_watermark(wav, sample_rate=24_000)
 
-        return watermarked_wav
+        return wav
 
     def encode_reference(self, ref_audio_path: str | Path):
         wav, _ = librosa.load(ref_audio_path, sr=16000, mono=True)
