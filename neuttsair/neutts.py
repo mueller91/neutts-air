@@ -42,7 +42,7 @@ class NeuTTSAir:
         self._load_codec(codec_repo, codec_device)
 
         # Load watermarker
-        self.watermarker = perth.PerthImplicitWatermarker()
+        #self.watermarker = perth.PerthImplicitWatermarker()
 
     def _load_backbone(self, backbone_repo, backbone_device):
         print(f"Loading backbone from: {backbone_repo} on {backbone_device} ...")
